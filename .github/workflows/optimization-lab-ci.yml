@@ -27,9 +27,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Test gradient descent
+      - name: Test original gradient descent
         working-directory: projects/gradient-descent
-        run: python -m unittest discover -v
+        run: python -m unittest discover -s ../2026-10-19/optimization-lab -p 'test_existing_gradient_descent.py' -v
       - name: Test optimization lab
         working-directory: projects/2026-10-19/optimization-lab
         run: python -m unittest discover -v
