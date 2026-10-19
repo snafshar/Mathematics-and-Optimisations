@@ -1,4 +1,9 @@
+import sys
 import unittest
+from pathlib import Path
+
+# The original implementation is maintained in a sibling project folder.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "gradient-descent"))
 
 from gradient_descent import gradient, objective, optimize
 
