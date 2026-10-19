@@ -1,0 +1,38 @@
+name: Optimization Lab CI
+
+on:
+  push:
+    paths:
+      - "projects/2026-10-19/optimization-lab/**"
+      - "projects/gradient-descent/**"
+      - ".github/workflows/optimization-lab-ci.yml"
+  pull_request:
+    paths:
+      - "projects/2026-10-19/optimization-lab/**"
+      - "projects/gradient-descent/**"
+      - ".github/workflows/optimization-lab-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test gradient descent
+        working-directory: projects/gradient-descent
+        run: python -m unittest discover -v
+      - name: Test optimization lab
+        working-directory: projects/2026-10-19/optimization-lab
+        run: python -m unittest discover -v
+      - name: Run comparison smoke test
+        working-directory: projects/2026-10-19/optimization-lab
+        run: python compare_methods.py --steps 10
