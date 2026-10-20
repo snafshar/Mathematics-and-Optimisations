@@ -28,9 +28,10 @@ class OptimizationTests(unittest.TestCase):
         candidate = [point[i] + step * direction[i] for i in range(2)]
         self.assertLess(objective(candidate), objective(point))
 
-    def test_invalid_direction_is_rejected(self):
+    def test_non_descent_direction_is_rejected(self):
+        # At (0, 0), gradient is (-6, -5); direction (-1, -1) is uphill.
         with self.assertRaises(ValueError):
-            armijo_backtracking(objective, gradient, [0, 0], [1, 1])
+            armijo_backtracking(objective, gradient, [0, 0], [-1, -1])
 
 
 if __name__ == "__main__":
