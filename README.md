@@ -1,12 +1,13 @@
 # Mathematics and Optimisations
 
-A collection of mathematical modelling, optimisation, numerical-method, and algorithm experiments.
+Mathematical modelling, optimization, numerical methods, and algorithm experiments.
 
-## Projects
+## Optimization notes
+- [Convexity and Hessians](projects/2026-10-20/notes/convexity.md)
+- [Gradient checking](projects/2026-10-20/notes/gradient-checking.md)
+- [Stopping criteria](projects/2026-10-20/notes/stopping-criteria.md)
+- [Armijo line search](projects/2026-10-20/notes/line-search.md)
+- [Benchmark protocol](projects/2026-10-20/notes/benchmark-template.md)
+- [Numerical differentiation](projects/2026-10-20/notes/numerical-differences.md)
 
-- [Gradient Descent Lab](https://github.com/snafshar/Mathematics-and-Optimisations/tree/main/projects/gradient-descent) — one-dimensional quadratic optimization, iteration history, and learning-rate experiments.
-- [Optimization Lab](https://github.com/snafshar/Mathematics-and-Optimisations/tree/main/projects/2026-10-19/optimization-lab) — coordinate descent, Armijo backtracking, gradient descent, regression tests, and benchmarks.
-
-## Reproducibility
-
-The examples use the Python standard library. Run tests from each project directory with `python -m unittest discover -v`. The numerical examples state their objective function, assumptions, and stopping criteria so results can be checked analytically.
+State objective assumptions, stopping rules, and reference solutions before comparing methods.
